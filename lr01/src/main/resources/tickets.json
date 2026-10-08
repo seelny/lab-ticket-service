@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "title": "Сломан принтер",
+    "priority": "HIGH",
+    "status": "DONE",
+    "assignee": "ivanov",
+    "createdAt": "2026-09-01T09:00:00Z",
+    "updatedAt": "2026-09-01T15:30:00Z"
+  },
+  {
+    "id": 2,
+    "title": "Нет VPN",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "assignee": "petrov",
+    "createdAt": "2026-09-02T10:00:00Z",
+    "updatedAt": "2026-09-02T11:00:00Z"
+  },
+  {
+    "id": 3,
+    "title": "Заказать кабель",
+    "priority": "LOW",
+    "status": "NEW",
+    "assignee": null,
+    "createdAt": "2026-09-03T08:00:00Z",
+    "updatedAt": "2026-09-03T08:00:00Z"
+  },
+  {
+    "id": 4,
+    "title": "Настроить монитор",
+    "priority": "LOW",
+    "status": "DONE",
+    "assignee": "sidorov",
+    "createdAt": "2026-09-03T09:00:00Z",
+    "updatedAt": "2026-09-03T12:00:00Z"
+  },
+  {
+    "id": 5,
+    "title": "Сбой почтового сервера",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "assignee": "ivanov",
+    "createdAt": "2026-09-04T07:30:00Z",
+    "updatedAt": "2026-09-04T08:15:00Z"
+  },
+  {
+    "id": 6,
+    "title": "Установить IDE",
+    "priority": "MEDIUM",
+    "status": "NEW",
+    "assignee": "smirnov",
+    "createdAt": "2026-09-04T11:00:00Z",
+    "updatedAt": "2026-09-04T11:00:00Z"
+  },
+  {
+    "id": 7,
+    "title": "Заменить клавиатуру",
+    "priority": "LOW",
+    "status": "DONE",
+    "assignee": "petrov",
+    "createdAt": "2026-09-04T13:00:00Z",
+    "updatedAt": "2026-09-04T14:45:00Z"
+  },
+  {
+    "id": 8,
+    "title": "Падение базы данных",
+    "priority": "HIGH",
+    "status": "DONE",
+    "assignee": "kuznetsov",
+    "createdAt": "2026-09-05T06:00:00Z",
+    "updatedAt": "2026-09-05T10:30:00Z"
+  },
+  {
+    "id": 9,
+    "title": "Выдать гостевой Wi-Fi",
+    "priority": "LOW",
+    "status": "NEW",
+    "assignee": null,
+    "createdAt": "2026-09-05T09:20:00Z",
+    "updatedAt": "2026-09-05T09:20:00Z"
+  },
+  {
+    "id": 10,
+    "title": "Обновить SSL сертификат",
+    "priority": "MEDIUM",
+    "status": "IN_PROGRESS",
+    "assignee": "ivanov",
+    "createdAt": "2026-09-05T14:00:00Z",
+    "updatedAt": "2026-09-05T15:00:00Z"
+  },
+  {
+    "id": 11,
+    "title": "Перегрев коммутатора",
+    "priority": "HIGH",
+    "status": "DONE",
+    "assignee": "sidorov",
+    "createdAt": "2026-09-06T08:00:00Z",
+    "updatedAt": "2026-09-06T11:15:00Z"
+  },
+  {
+    "id": 12,
+    "title": "Выделить лицензию Jira",
+    "priority": "MEDIUM",
+    "status": "NEW",
+    "assignee": "popov",
+    "createdAt": "2026-09-06T10:00:00Z",
+    "updatedAt": "2026-09-06T10:00:00Z"
+  },
+  {
+    "id": 13,
+    "title": "Чистка сервера от пыли",
+    "priority": "LOW",
+    "status": "DONE",
+    "assignee": "kuznetsov",
+    "createdAt": "2026-09-06T12:00:00Z",
+    "updatedAt": "2026-09-06T16:00:00Z"
+  },
+  {
+    "id": 14,
+    "title": "DDoS атака на шлюз",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "assignee": "petrov",
+    "createdAt": "2026-09-07T05:30:00Z",
+    "updatedAt": "2026-09-07T06:00:00Z"
+  },
+  {
+    "id": 15,
+    "title": "Настроить резервное копирование",
+    "priority": "MEDIUM",
+    "status": "DONE",
+    "assignee": "ivanov",
+    "createdAt": "2026-09-07T09:00:00Z",
+    "updatedAt": "2026-09-07T18:00:00Z"
+  },
+  {
+    "id": 16,
+    "title": "Подключить второй монитор",
+    "priority": "LOW",
+    "status": "NEW",
+    "assignee": null,
+    "createdAt": "2026-09-07T14:10:00Z",
+    "updatedAt": "2026-09-07T14:10:00Z"
+  },
+  {
+    "id": 17,
+    "title": "Сброс пароля в домене",
+    "priority": "LOW",
+    "status": "DONE",
+    "assignee": "smirnov",
+    "createdAt": "2026-09-08T08:30:00Z",
+    "updatedAt": "2026-09-08T09:00:00Z"
+  },
+  {
+    "id": 18,
+    "title": "Утечка памяти в сервисе",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "assignee": "kuznetsov",
+    "createdAt": "2026-09-08T10:15:00Z",
+    "updatedAt": "2026-09-08T11:00:00Z"
+  },
+  {
+    "id": 19,
+    "title": "Заказ канцелярии",
+    "priority": "LOW",
+    "status": "NEW",
+    "assignee": null,
+    "createdAt": "2026-09-08T13:00:00Z",
+    "updatedAt": "2026-09-08T13:00:00Z"
+  },
+  {
+    "id": 20,
+    "title": "Ошибка 500 в платежах",
+    "priority": "HIGH",
+    "status": "DONE",
+    "assignee": "ivanov",
+    "createdAt": "2026-09-09T07:00:00Z",
+    "updatedAt": "2026-09-09T09:40:00Z"
+  },
+  {
+    "id": 21,
+    "title": "Замена батареи в ИБП",
+    "priority": "MEDIUM",
+    "status": "DONE",
+    "assignee": "sidorov",
+    "createdAt": "2026-09-09T11:00:00Z",
+    "updatedAt": "2026-09-09T13:30:00Z"
+  },
+  {
+    "id": 22,
+    "title": "Разблокировать учетную запись",
+    "priority": "MEDIUM",
+    "status": "IN_PROGRESS",
+    "assignee": "smirnov",
+    "createdAt": "2026-09-09T15:00:00Z",
+    "updatedAt": "2026-09-09T15:10:00Z"
+  },
+  {
+    "id": 23,
+    "title": "Миграция DNS записей",
+    "priority": "MEDIUM",
+    "status": "DONE",
+    "assignee": "petrov",
+    "createdAt": "2026-09-10T08:00:00Z",
+    "updatedAt": "2026-09-10T12:00:00Z"
+  },
+  {
+    "id": 24,
+    "title": "Установка антивируса",
+    "priority": "LOW",
+    "status": "NEW",
+    "assignee": "popov",
+    "createdAt": "2026-09-10T10:00:00Z",
+    "updatedAt": "2026-09-10T10:00:00Z"
+  },
+  {
+    "id": 25,
+    "title": "Отказ дискового массива",
+    "priority": "HIGH",
+    "status": "DONE",
+    "assignee": "kuznetsov",
+    "createdAt": "2026-09-10T11:30:00Z",
+    "updatedAt": "2026-09-10T17:50:00Z"
+  },
+  {
+    "id": 26,
+    "title": "Провести кабель в переговорную",
+    "priority": "LOW",
+    "status": "IN_PROGRESS",
+    "assignee": "sidorov",
+    "createdAt": "2026-09-10T14:00:00Z",
+    "updatedAt": "2026-09-10T14:30:00Z"
+  },
+  {
+    "id": 27,
+    "title": "Аудит прав доступа",
+    "priority": "MEDIUM",
+    "status": "NEW",
+    "assignee": null,
+    "createdAt": "2026-09-11T09:00:00Z",
+    "updatedAt": "2026-09-11T09:00:00Z"
+  },
+  {
+    "id": 28,
+    "title": "Взлом тестового стенда",
+    "priority": "HIGH",
+    "status": "IN_PROGRESS",
+    "assignee": "petrov",
+    "createdAt": "2026-09-11T10:15:00Z",
+    "updatedAt": "2026-09-11T10:45:00Z"
+  },
+  {
+    "id": 29,
+    "title": "Обновить прошивку роутера",
+    "priority": "MEDIUM",
+    "status": "DONE",
+    "assignee": "smirnov",
+    "createdAt": "2026-09-11T12:00:00Z",
+    "updatedAt": "2026-09-11T14:20:00Z"
+  },
+  {
+    "id": 30,
+    "title": "Замена тонера в бухгалтерии",
+    "priority": "LOW",
+    "status": "DONE",
+    "assignee": "popov",
+    "createdAt": "2026-09-11T15:00:00Z",
+    "updatedAt": "2026-09-11T15:40:00Z"
+  }
+]
