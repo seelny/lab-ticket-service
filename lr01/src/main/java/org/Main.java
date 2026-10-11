@@ -1,3 +1,4 @@
+//lab1
 //package org;
 //
 //import org.facade.TicketAppFacade;
@@ -120,71 +121,129 @@
 //}
 
 
+//lab3
 
+//package org;
+//
+//import org.analytics.ReportComposer;
+//import org.analytics.TicketReports;
+//import org.dto.TicketLoader;
+//import org.dto.TicketOperations;
+//import org.model.Priority;
+//import org.model.Ticket;
+//
+//import java.util.List;
+//
+//public class Main {
+//    public static void main(String[] args) {
+//        List<Ticket> tickets = TicketLoader.loadTickets();
+//        System.out.println("Загружено заявок: " + tickets.size() + "\n");
+//
+//
+//        if (!tickets.isEmpty()) {
+//            Ticket first = tickets.getFirst();
+//            System.out.println("Первая заявка: " + TicketOperations.isOpen(first));
+//            System.out.println("Вес приоритета HIGH: " + TicketOperations.priorityWeight(Priority.HIGH));
+//
+//            TicketOperations ops = new TicketOperations();
+//            Ticket reassigned = ops.withAssignee(first, "new_assignee");
+//            System.out.println("Исходный исполнитель: " + first.getAssignee());
+//            System.out.println("Новый объект с исполнителем: " + reassigned.getAssignee());
+//        }
+//        System.out.println();
+//
+//
+//        System.out.println("Задание 2");
+//        TicketReports reports = new TicketReports();
+//
+//        System.out.println("Открытые HIGH:");
+//        reports.openHighTickets(tickets).forEach(t ->
+//                System.out.println("ID " + t.getId() + " [" + t.getCreatedAt() + "]: " + t.getTitle())
+//        );
+//
+//        System.out.printf("Среднее время закрытых: %.2f ч.%n", reports.averageProcessingTime(tickets));
+//
+//        System.out.println("Счет заявок по статусам:");
+//        reports.groupByStatus(tickets).forEach((status, count) ->
+//                System.out.println(status + ": " + count)
+//        );
+//
+//        System.out.println("Топ-3 исполнителей: " + reports.top3Assignee(tickets));
+//        System.out.println("Исполнители: " + reports.uniqueAssignees(tickets));
+//        System.out.println();
+//
+//
+//
+//
+//        ReportComposer composer = new ReportComposer();
+//
+//        System.out.println("Отчёт filterOpen + filterHigh:");
+//        List<Ticket> openHigh = ReportComposer.runReport(
+//                tickets,
+//                ReportComposer.filterOpen,
+//                ReportComposer.filterHigh
+//        );
+//        System.out.println("Найдено заявок: " + openHigh.size());
+//
+//        System.out.println("Отчёт исполнители с высоким приоритетом:");
+//        System.out.println(composer.filterHighPriorityAssignees(tickets));
+//    }
+//}
+
+
+//lab4
 
 package org;
 
-import org.analytics.ReportComposer;
-import org.analytics.TicketReports;
-import org.dto.TicketLoader;
-import org.dto.TicketOperations;
 import org.model.Priority;
+import org.model.Role;
 import org.model.Ticket;
-
-import java.util.List;
+import org.repository.InMemoryTicketRepository;
+import org.repository.TicketRepository;
+import org.service.AuthTicketService;
+import org.service.HighestPriorityPicker;
+import org.service.LoggingTicketService;
+import org.service.SecurityContext;
+import org.service.TicketService;
+import org.service.TicketServiceApi;
+import org.service.TimingTicketService;
 
 public class Main {
     public static void main(String[] args) {
-        List<Ticket> tickets = TicketLoader.loadTickets();
-        System.out.println("Загружено заявок: " + tickets.size() + "\n");
+        TicketRepository repository = new InMemoryTicketRepository();
+        SecurityContext securityContext = new SecurityContext(Role.USER);
 
+        TicketServiceApi target = new TicketService(repository, new HighestPriorityPicker());
+        TicketServiceApi timingService = new TimingTicketService(target);
+        TicketServiceApi authService = new AuthTicketService(timingService, securityContext);
+        TicketServiceApi service = new LoggingTicketService(authService);
 
-        if (!tickets.isEmpty()) {
-            Ticket first = tickets.getFirst();
-            System.out.println("Первая заявка: " + TicketOperations.isOpen(first));
-            System.out.println("Вес приоритета HIGH: " + TicketOperations.priorityWeight(Priority.HIGH));
+        System.out.println("\n _____Вход под ролью: USER_____");
+        Ticket ticket1 = service.createTicket("Исправить баг в авторизации", Priority.HIGH, "Андрей");
+        Ticket ticket2 = service.createTicket("Обновить документацию API", Priority.LOW);
 
-            TicketOperations ops = new TicketOperations();
-            Ticket reassigned = ops.withAssignee(first, "new_assignee");
-            System.out.println("Исходный исполнитель: " + first.getAssignee());
-            System.out.println("Новый объект с исполнителем: " + reassigned.getAssignee());
+        service.startProgress(ticket1.getId());
+        System.out.println("Список заявок (USER): " + service.findAllTickets().size());
+
+        System.out.println("\n _____SecurityException_____");
+        try {
+            service.completeTicket(ticket1.getId());
+        } catch (SecurityException e) {
+            System.out.println("Перехвачено исключение в Main: " + e.getMessage());
         }
-        System.out.println();
 
+        try {
+            service.dumpMetrics();
+        } catch (SecurityException e) {
+            System.out.println("Перехвачено исключение в Main: " + e.getMessage());
+        }
 
-        System.out.println("Задание 2");
-        TicketReports reports = new TicketReports();
+        System.out.println("\n_________ADMIN___________");
+        securityContext.setRole(Role.ADMIN);
 
-        System.out.println("Открытые HIGH:");
-        reports.openHighTickets(tickets).forEach(t ->
-                System.out.println("ID " + t.getId() + " [" + t.getCreatedAt() + "]: " + t.getTitle())
-        );
+        service.completeTicket(ticket1.getId());
+        System.out.println("Статус заявки id=" + ticket1.getId() + ": " + ticket1.getStatus());
 
-        System.out.printf("Среднее время закрытых: %.2f ч.%n", reports.averageProcessingTime(tickets));
-
-        System.out.println("Счет заявок по статусам:");
-        reports.groupByStatus(tickets).forEach((status, count) ->
-                System.out.println(status + ": " + count)
-        );
-
-        System.out.println("Топ-3 исполнителей: " + reports.top3Assignee(tickets));
-        System.out.println("Исполнители: " + reports.uniqueAssignees(tickets));
-        System.out.println();
-
-
-
-
-        ReportComposer composer = new ReportComposer();
-
-        System.out.println("Отчёт filterOpen + filterHigh:");
-        List<Ticket> openHigh = ReportComposer.runReport(
-                tickets,
-                ReportComposer.filterOpen,
-                ReportComposer.filterHigh
-        );
-        System.out.println("Найдено заявок: " + openHigh.size());
-
-        System.out.println("Отчёт исполнители с высоким приоритетом:");
-        System.out.println(composer.filterHighPriorityAssignees(tickets));
+        service.dumpMetrics();
     }
 }
