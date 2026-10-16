@@ -30,3 +30,35 @@
 2026-10-11T05:58:42.464608628Z INFO completeTicket ok 0ms
 2026-10-11T05:58:42.469717821Z INFO dumpMetrics()
 2026-10-11T05:58:42.471106158Z INFO dumpMetrics ok 1ms
+2026-10-15T06:48:44.560888311Z INFO createTicket(title="Исправить баг в авторизации", priority=HIGH, assignee="Андрей")
+2026-10-15T06:48:44.624631064Z INFO createTicket ok 29ms
+2026-10-15T06:48:44.625001347Z INFO createTicket(title="Обновить документацию API", priority=LOW)
+2026-10-15T06:48:44.626197211Z INFO createTicket ok 0ms
+2026-10-15T06:48:44.628290477Z INFO startProgress(id=1)
+2026-10-15T06:48:44.629295060Z INFO startProgress ok 0ms
+2026-10-15T06:48:44.629561244Z INFO findAllTickets()
+2026-10-15T06:48:44.630768453Z INFO findAllTickets ok 1ms
+2026-10-15T06:48:44.636508921Z INFO completeTicket(id=1)
+2026-10-15T06:48:44.636825493Z ERROR completeTicket id=1 error=Forbidden: ADMIN required
+2026-10-15T06:48:44.637832867Z INFO dumpMetrics()
+2026-10-15T06:48:44.638094009Z ERROR dumpMetrics  error=Forbidden: ADMIN required
+2026-10-15T06:48:44.638329312Z INFO completeTicket(id=1)
+2026-10-15T06:48:44.639459222Z INFO completeTicket ok 0ms
+2026-10-15T06:48:44.648697486Z INFO dumpMetrics()
+2026-10-15T06:48:44.652287874Z INFO dumpMetrics ok 3ms
+2026-10-15T07:01:20.934746491Z INFO createTicket(title="Исправить баг в авторизации", priority=HIGH, assignee="Андрей")
+2026-10-15T07:01:20.979281981Z INFO createTicket ok 29ms
+2026-10-15T07:01:20.979792876Z INFO createTicket(title="Обновить документацию API", priority=LOW)
+2026-10-15T07:01:20.980198551Z INFO createTicket ok 0ms
+2026-10-15T07:01:20.981472260Z INFO startProgress(id=1)
+2026-10-15T07:01:20.982256127Z INFO startProgress ok 0ms
+2026-10-15T07:01:20.982534921Z INFO findAllTickets()
+2026-10-15T07:01:20.983537380Z INFO findAllTickets ok 0ms
+2026-10-15T07:01:20.988079561Z INFO completeTicket(id=1)
+2026-10-15T07:01:20.988330696Z ERROR completeTicket id=1 error=Forbidden: ADMIN required
+2026-10-15T07:01:20.988647446Z INFO dumpMetrics()
+2026-10-15T07:01:20.988861290Z ERROR dumpMetrics  error=Forbidden: ADMIN required
+2026-10-15T07:01:20.989230614Z INFO completeTicket(id=1)
+2026-10-15T07:01:20.989669694Z INFO completeTicket ok 0ms
+2026-10-15T07:01:20.994217960Z INFO dumpMetrics()
+2026-10-15T07:01:20.995442196Z INFO dumpMetrics ok 0ms
